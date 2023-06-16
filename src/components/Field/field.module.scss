@@ -1,0 +1,25 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 10px;
+  input {
+    width: 200px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: cornsilk;
+    font-size: 20px;
+    padding-bottom: 5px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.error {
+  position: absolute;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #e0a8a8;
+}

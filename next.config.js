@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  env: {
+    SITE_NAME: process.env.SITE_NAME,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
