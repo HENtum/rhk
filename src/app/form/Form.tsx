@@ -13,10 +13,6 @@ import FormFields from "@/components/FormFields/FormFields";
 const Form: FC = () => {
   const { register, handleSubmit, formState } = useForm<IForm>({
     mode: "onChange",
-    defaultValues: {
-      fromCountry: "Russia",
-      name: "Bga",
-    },
   });
 
   const { push } = useRouter();

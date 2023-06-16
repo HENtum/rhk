@@ -5,7 +5,7 @@ import style from "./field.module.scss";
 import { IField } from "./form.interface";
 
 const Field = forwardRef<HTMLInputElement, IField>(
-  ({ placeholder, error, type, ...rest }, ref) => {
+  ({ placeholder, error, type = "text", ...rest }, ref) => {
     const [err, setErr] = useState(false);
     useEffect(() => {
       setErr(true);
