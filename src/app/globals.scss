@@ -23,3 +23,53 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px #000 inset; /* можно изменить на любой вариант цвета */
+  -webkit-text-fill-color: cornsilk;
+}
+
+.custom-select {
+  &__control {
+    background-color: rgb(34, 34, 34) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: none !important;
+    &--is-focused {
+      border: 2px solid white !important;
+    }
+
+    &--menu-is-open {
+      background-color: rgb(34, 34, 34) !important;
+    }
+  }
+
+  &__value-container {
+    padding: 0 !important;
+    margin-left: 10px !important;
+    background-color: rgb(34, 34, 34) !important;
+  }
+  &__input-container {
+    background-color: rgb(34, 34, 34) !important;
+  }
+  &__multi-value {
+    background-color: cornsilk !important;
+    border-radius: 10px !important;
+  }
+  &__menu {
+    background-color: rgb(34, 34, 34) !important;
+    color: rgb(255, 255, 255);
+    border-radius: 10px !important;
+    border: 2px solid rgba(255, 255, 255, 0.459) !important;
+  }
+  &__option {
+    background-color: rgb(34, 34, 34) !important;
+    border-radius: 50px !important;
+
+    &--is-focused {
+      background-color: rgb(161, 209, 247) !important;
+    }
+  }
+  &__multi-value__remove {
+    color: black !important;
+  }
+}

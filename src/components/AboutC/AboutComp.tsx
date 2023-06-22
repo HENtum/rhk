@@ -17,7 +17,7 @@ const AboutComp = () => {
       {params && (
         <div className={style.root}>
           <p>
-            Привет {params.name} вы из {params.fromCountry} и вам {params.age}{" "}
+            Привет {params.name} вы из {params.fromCountry} вам {params.age}{" "}
             {params.age < 6
               ? params.age < 5
                 ? params.age < 2
@@ -25,6 +25,11 @@ const AboutComp = () => {
                   : "годика"
                 : "годиков"
               : "лет"}
+            и вам {params.selectJanre.length > 1 ? "нравяться" : "нравиться"}{" "}
+            фильмы с жанром{" "}
+            {params.selectJanre.map((item, i) =>
+              params.selectJanre.length - 1 === i ? item : item + ", "
+            )}
           </p>
         </div>
       )}

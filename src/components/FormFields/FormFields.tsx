@@ -1,14 +1,25 @@
 "use client";
 import { FC } from "react";
-import { FormState, UseFormRegister } from "react-hook-form";
+import {
+  Control,
+  Controller,
+  FormState,
+  UseFormRegister,
+} from "react-hook-form";
 import Field from "@/components/Field/Field";
+import { SelectComp } from "../Select/Select";
 
 type Props = {
   register: UseFormRegister<any>;
   formState: FormState<any>;
+  control: Control<any>;
 };
 
-const FormFields: FC<Props> = ({ register, formState: { errors } }) => {
+const FormFields: FC<Props> = ({
+  register,
+  formState: { errors },
+  control,
+}) => {
   return (
     <>
       <Field
@@ -46,6 +57,19 @@ const FormFields: FC<Props> = ({ register, formState: { errors } }) => {
             message: "You can't be less than 1 year old",
           },
         })}
+      />
+      <Controller
+        name="selectJanre"
+        control={control}
+        render={({ field }) => (
+          <SelectComp
+            isMulti={true}
+            placeholder="Choose Jenres"
+            field={field}
+            error={errors?.selectJanre}
+          />
+        )}
+        rules={{ required: "Janre is required" }}
       />
     </>
   );

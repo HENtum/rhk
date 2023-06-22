@@ -11,14 +11,19 @@ import { useRouter } from "next/navigation";
 import FormFields from "@/components/FormFields/FormFields";
 
 const Form: FC = () => {
-  const { register, handleSubmit, formState } = useForm<IForm>({
+  const { register, handleSubmit, formState, control } = useForm<IForm>({
     mode: "onChange",
   });
 
   const { push } = useRouter();
 
-  const onSubmit: SubmitHandler<IForm> = ({ age, fromCountry, name }) => {
-    const abouts = { name, fromCountry, age };
+  const onSubmit: SubmitHandler<IForm> = ({
+    age,
+    fromCountry,
+    name,
+    selectJanre,
+  }) => {
+    const abouts = { name, fromCountry, age, selectJanre };
     Cookies.set("about", JSON.stringify(abouts));
     push("./");
   };
@@ -28,7 +33,13 @@ const Form: FC = () => {
       <ToLink title="Вернуться" link="./" />
       <div className={style.formRoot}>
         <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-          {<FormFields register={register} formState={formState} />}
+          {
+            <FormFields
+              register={register}
+              formState={formState}
+              control={control}
+            />
+          }
           <button className={style.button} type="submit">
             Send
           </button>
