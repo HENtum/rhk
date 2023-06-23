@@ -24,9 +24,8 @@ const AboutComp = () => {
                   ? "годик"
                   : "годика"
                 : "годиков"
-              : "лет"}
-            и вам {params.selectJanre.length > 1 ? "нравяться" : "нравиться"}{" "}
-            фильмы с жанром{" "}
+              : "лет "}
+            и вам нравяться фильмы с жанром{" "}
             {params.selectJanre.map((item, i) =>
               params.selectJanre.length - 1 === i ? item : item + ", "
             )}
