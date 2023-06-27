@@ -1,6 +1,12 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from "react-query";
 import { Metadata } from "next";
 import "./globals.scss";
 import { Raleway } from "next/font/google";
+import Message from "@/components/Message/Message";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
 
 const raleway = Raleway({
   weight: ["400", "500", "600", "700"],
@@ -9,11 +15,12 @@ const raleway = Raleway({
   subsets: ["latin"],
 });
 
+const queryClient = new QueryClient();
+
 export const metadata: Metadata = {
   title: `${process.env.SITE_NAME}`,
   description: "Practice react-hook-form",
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -21,7 +28,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={raleway.className}>{children}</body>
+      <body className={raleway.className}>
+        <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+            <Message>{children}</Message>
+          </QueryClientProvider>
+        </Provider>
+      </body>
     </html>
   );
+}
+{
 }

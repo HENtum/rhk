@@ -9,6 +9,7 @@ import style from "./form.module.scss";
 import { useRouter } from "next/navigation";
 
 import FormFields from "@/components/FormFields/FormFields";
+import { useActions } from "@/hooks/useActions";
 
 const Form: FC = () => {
   const { register, handleSubmit, formState, control } = useForm<IForm>({
@@ -16,7 +17,7 @@ const Form: FC = () => {
   });
 
   const { push } = useRouter();
-
+  const action = useActions();
   const onSubmit: SubmitHandler<IForm> = ({
     age,
     fromCountry,
@@ -25,9 +26,9 @@ const Form: FC = () => {
   }) => {
     const abouts = { name, fromCountry, age, selectJanre };
     Cookies.set("about", JSON.stringify(abouts));
+    action.updateMessage("Успешно");
     push("./");
   };
-
   return (
     <div className="container">
       <ToLink title="Вернуться" link="./" />

@@ -1,0 +1,39 @@
+.messageLabel {
+  position: relative;
+  display: flex;
+  row-gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+  width: 250px;
+  min-height: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  align-content: center;
+  padding: 10px;
+  transition: all 0.5s ease-in-out;
+  color: rgb(0, 0, 0);
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 30px;
+  }
+
+  &:hover {
+    border: 2px solid white;
+    background-color: black;
+    color: #ffffff;
+  }
+}
+
+.icon {
+  font-size: 25px;
+  flex-shrink: 0;
+
+  &:hover {
+    color: rgb(142, 142, 255);
+    cursor: pointer;
+  }
+}
