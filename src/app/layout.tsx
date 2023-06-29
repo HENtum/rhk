@@ -1,7 +1,6 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Metadata } from "next";
 import "./globals.scss";
 import { Raleway } from "next/font/google";
 import Message from "@/components/Message/Message";
@@ -17,10 +16,6 @@ const raleway = Raleway({
 
 const queryClient = new QueryClient();
 
-export const metadata: Metadata = {
-  title: `${process.env.SITE_NAME}`,
-  description: "Practice react-hook-form",
-};
 export default function RootLayout({
   children,
 }: {

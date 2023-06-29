@@ -10,9 +10,9 @@ type Props = {
 
 const ToLink: FC<Props> = ({ link, title }) => {
   return (
-    <div className={style.link}>
-      <Link href={link}>{title}</Link>
-    </div>
+    <Link href={link}>
+      <div className={style.link}>{title}</div>
+    </Link>
   );
 };
 

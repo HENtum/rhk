@@ -16,8 +16,8 @@ const Form: FC = () => {
     mode: "onChange",
   });
 
+  const { updateMessage } = useActions();
   const { push } = useRouter();
-  const action = useActions();
   const onSubmit: SubmitHandler<IForm> = ({
     age,
     fromCountry,
@@ -26,7 +26,7 @@ const Form: FC = () => {
   }) => {
     const abouts = { name, fromCountry, age, selectJanre };
     Cookies.set("about", JSON.stringify(abouts));
-    action.updateMessage("Успешно");
+    updateMessage("Успешно");
     push("./");
   };
   return (
